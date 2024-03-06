@@ -53,86 +53,45 @@ public class B16235 {
 			}
 		}
 
-
-		for(int year = 0; year < K; year++){
+		while(K-- > 0) {
 			// 봄, 여름, 겨울
-			for(int y = 0; y < N; y++){
-				for(int x = 0; x < N; x++){
+			for (int y = 0; y < N; y++) {
+				for (int x = 0; x < N; x++) {
 					int size = dequeMatrix[y][x].size();
-					if(size == 0) continue;
 					int add = 0;
-					for(int t = 0; t < size; t++){
+					for (int t = 0; t < size; t++) {
 						int age = dequeMatrix[y][x].pollFirst();
-						if(age < Matrix[y][x]) {
+						if (age <= Matrix[y][x]) {
 							Matrix[y][x] -= age++;
 							dequeMatrix[y][x].offerLast(age);
-						}
-						else {
+						} else
 							add += age / 2;
-						}
 					}
 					Matrix[y][x] += (A[y][x] + add);
-
-					// List<Integer> list = new ArrayList<>();
-					// int add = 0;
-					//
-					// int size = listMatrix[y][x].size();
-					// Collections.sort(listMatrix[y][x]);
-					// for(int t = 0; t < size; t++){
-					// 	int age = listMatrix[y][x].get(t);
-					// 	if(Matrix[y][x] < age) add += age / 2;
-					// 	else{
-					// 		Matrix[y][x] -= age++;
-					// 		list.add(age);
-					// 	}
-					// }
-					// Matrix[y][x] += (A[y][x] + add);
-					// listMatrix[y][x] = new ArrayList<>(list);
 				}
 			}
 			// 가을
-			for(int y = 0; y < N; y++){
-				for(int x = 0; x < N; x++){
+			for (int y = 0; y < N; y++) {
+				for (int x = 0; x < N; x++) {
 					int size = dequeMatrix[y][x].size();
-					for(int t = 0; t < size; t++) {
+					for (int t = 0; t < size; t++) {
 						int age = dequeMatrix[y][x].pollFirst();
-						if (age < 5) {
-							dequeMatrix[y][x].offerLast(age);
-							continue;
-						}
-						if(age % 5 == 0){
-							for(int i = 0; i < 8; i++){
+						if (age % 5 == 0) {
+							for (int i = 0; i < 8; i++) {
 								int dy = y + dir[i][0], dx = x + dir[i][1];
-								if(dy >= 0 && dx >= 0 && dy < N && dx < N){
+								if (dy >= 0 && dx >= 0 && dy < N && dx < N) {
 									dequeMatrix[dy][dx].offerFirst(1);
 								}
 							}
 						}
+						dequeMatrix[y][x].offerLast(age);
 					}
-					// Collections.sort(listMatrix[y][x], Collections.reverseOrder());
-					// int size = listMatrix[y][x].size();
-					// for(int t = 0; t < size; t++){
-					// 	// int age = listMatrix[y][x].get(t).age;
-					// 	int age = listMatrix[y][x].get(t);
-					// 	if(age < 5) break;
-					//
-					// 	if(age % 5 == 0){
-					// 		for(int i = 0; i < 8; i++){
-					// 			int dy = y + dir[i][0], dx = x + dir[i][1];
-					// 			if(dy >= 0 && dx >= 0 && dy < N && dx < N){
-					// 				listMatrix[dy][dx].add(1);
-					// 			}
-					// 		}
-					// 	}
-					// }
 				}
 			}
 		}
-
 		int answer = 0;
 		for(int y = 0; y < N; y++){
 			for(int x = 0; x < N; x++)
-				// answer += listMatrix[y][x].size();
 				answer += dequeMatrix[y][x].size();
 		}
 
