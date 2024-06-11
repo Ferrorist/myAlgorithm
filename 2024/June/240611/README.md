@@ -100,3 +100,11 @@ public int indexOf(String str) {
 <br>
 그러므로, 해당 문제에서 indexOf을 사용할 경우 시간 초과가 발생할 수 있다.<br>
 그래서 Stack을 활용하였다.
+
+## 프로그래머스 42842. 카펫
+수학적으로 접근하였다.<br>
+1) yellow + brown = 전체 카펫의 넓이
+2) (brown + 4) / 2 = width + height<br>
+
+
+이 두 가지를 유도할 수 있었고, 이를 이용하여 문제를 해결하였다.
