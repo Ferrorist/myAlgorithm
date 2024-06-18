@@ -20,7 +20,13 @@
 
 ## 프로그래머스 12985. 예상 대진표
 세그먼트 트리를 활용하여 문제를 해결하였다.<br>
+
+<details>
+<summary>이전 코드 보기</summary>
+<br>
+
 ```java
+
 class Solution
 {
     class Node {
@@ -61,7 +67,25 @@ class Solution
     }
 }
 ```
+</details>
+<br>
 ![결과 캡쳐 01](./image/P12985_result_01.png)<br>
 최대 22.16ms고, 메모리의 경우 109MB가 나온 것을 확인하였지만 이를 좀 더 개선하고 싶었다.<br>
 먼저, 위의 코드에서 for문을 queue으로 대체하였다.<br>
 또한 '굳이 배열을 써야할까?' 라는 의문을 가져 배열을 사용하지 않는 방향으로 바꾸었다.<br>
+<br>
+이후 다른 사람의 풀이를 보고 조금 벙찐 느낌...<br>
+<details>
+<summary>code 보기</summary>
+<br>
+
+```java
+class Solution
+{
+    public int solution(int n, int a, int b)
+    {
+        return Integer.toBinaryString((a-1)^(b-1)).length();
+    }
+}
+```
+</details>
