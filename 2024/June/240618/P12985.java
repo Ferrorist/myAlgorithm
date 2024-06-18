@@ -6,9 +6,10 @@ import java.util.*;
 class Solution
 {
     class Node {
+        int idx;
         int min, max;
-        
-        public Node(int min, int max){
+        public Node(int idx, int min, int max){
+            this.idx = idx;
             this.min = min;
             this.max = max;
         }
@@ -22,21 +23,20 @@ class Solution
     {
         int answer = 1;
         int max_height = (int)log2(n);
-        Node[] tree = new Node[n * 4 + 1];
-        tree[1] = new Node(1, n);
         
-        Queue<Integer> queue = new ArrayDeque<>();
-        queue.offer(1);
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.offer(new Node(1, 1, n));
         
         while(!queue.isEmpty()){
-            int idx = queue.poll();
-            Node node = tree[idx];
+            Node node = queue.poll();
+            int idx = node.idx;
             if(node.contains(a) && node.contains(b)){
-                answer = idx;
+                answer = node.idx;
                 int min = node.min, max = node.max;
-                queue.offer(idx * 2);   queue.offer(idx * 2 + 1);
-                tree[idx*2] = new Node(min, (min + max) / 2);
-                tree[idx*2 + 1] = new Node((min + max) / 2 + 1, max);
+                Node left = new Node(idx*2, min, (min + max) / 2);
+                Node right = new Node(idx*2 + 1, (min + max) / 2 + 1, max);
+                queue.offer(left);
+                queue.offer(right);
             }
         }
         
