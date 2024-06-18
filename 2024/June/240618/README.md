@@ -69,6 +69,7 @@ class Solution
 ```
 </details>
 <br>
+
 ![결과 캡쳐 01](./image/P12985_result_01.png)<br>
 최대 22.16ms고, 메모리의 경우 109MB가 나온 것을 확인하였지만 이를 좀 더 개선하고 싶었다.<br>
 먼저, 위의 코드에서 for문을 queue으로 대체하였다.<br>
