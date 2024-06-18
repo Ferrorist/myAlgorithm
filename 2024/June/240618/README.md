@@ -17,3 +17,51 @@
 * 부분 배열 또는 부분 리스트 찾기
 * 두 요소의 합 찾기
 * 정렬된 배열의 특정 합 찾기
+
+## 프로그래머스 12985. 예상 대진표
+세그먼트 트리를 활용하여 문제를 해결하였다.<br>
+```java
+class Solution
+{
+    class Node {
+        int min, max;
+        
+        public Node(int min, int max){
+            this.min = min;
+            this.max = max;
+        }
+        
+        boolean contains(int n){
+            return min <= n && n <= max;
+        }       
+    }
+    
+    public int solution(int n, int a, int b)
+    {
+        int answer = 0;
+        int idx = 1;
+        int max_height = (int)log2(n);
+        Node[] tree = new Node[n * 4 + 1];
+        tree[1] = new Node(1, n);
+        
+        for(int i = 1; i <= n * 4; i++){
+            if(tree[i] != null && tree[i].contains(a) && tree[i].contains(b)){
+                idx = i;
+                int min = tree[i].min, max = tree[i].max;
+                tree[i*2] = new Node(min, (min + max)/2);
+                tree[i*2 + 1] = new Node((min + max)/2 + 1, max);
+            }
+        }
+        
+        return max_height - (int)log2(idx);
+    }
+    
+    double log2(int n){
+        return Math.log(n) / Math.log(2);
+    }
+}
+```
+![결과 캡쳐 01](./image/P12985_result_01.png)<br>
+최대 22.16ms고, 메모리의 경우 109MB가 나온 것을 확인하였지만 이를 좀 더 개선하고 싶었다.<br>
+먼저, 위의 코드에서 for문을 queue으로 대체하였다.<br>
+또한 '굳이 배열을 써야할까?' 라는 의문을 가져 배열을 사용하지 않는 방향으로 바꾸었다.<br>
