@@ -1,0 +1,11 @@
+-- https://school.programmers.co.kr/learn/courses/30/lessons/133025
+-- 소요 시간 : 6분 20초 (mysql)
+SELECT f.FLAVOR FROM FIRST_HALF f
+WHERE f.TOTAL_ORDER > 3000
+AND FLAVOR in (SELECT i.FLAVOR FROM ICECREAM_INFO i WHERE INGREDIENT_TYPE like "fruit_based");
+
+-- JOIN 사용
+SELECT f.FLAVOR FROM FIRST_HALF f
+LEFT JOIN ICECREAM_INFO i on f.FLAVOR = i.FLAVOR
+WHERE f.TOTAL_ORDER > 3000
+AND i.INGREDIENT_TYPE like "fruit_based";
