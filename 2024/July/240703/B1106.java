@@ -1,3 +1,7 @@
+/*
+ * https://www.acmicpc.net/problem/1106
+ * 소요 시간 : 14분 06초
+ */
 import java.io.*;
 import java.util.Arrays;
 public class B1106 {
