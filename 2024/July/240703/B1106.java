@@ -22,12 +22,13 @@ public class B1106 {
             for(int p = people; p < DP.length; p++){
                 DP[p] = Math.min(DP[p], DP[p - people] + cost);
             }
+            System.out.println(Arrays.toString(DP));
         }
 
         int result = Integer.MAX_VALUE;
         for(int i = target; i < DP.length; i++) result = Math.min(result, DP[i]);
 
         System.out.println(result);
-
+        System.out.println(Arrays.toString(DP));
     }
 }
