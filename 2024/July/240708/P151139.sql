@@ -1,0 +1,22 @@
+-- https://school.programmers.co.kr/learn/courses/30/lessons/151139
+-- 소요 시간 : 15분
+WITH TABLE1 AS (
+    SELECT * FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY
+    WHERE YEAR(START_DATE) = 2022 AND MONTH(START_DATE) BETWEEN 8 AND 10
+),
+HOTS AS (
+    SELECT CAR_ID FROM TABLE1
+    GROUP BY CAR_ID
+    HAVING COUNT(CAR_ID) >= 5
+)
+
+SELECT MONTH(START_DATE) AS `MONTH`, CAR_ID, COUNT(HISTORY_ID) AS `RECORDS` FROM TABLE1
+WHERE CAR_ID IN (SELECT CAR_ID FROM HOTS)
+GROUP BY `MONTH`, CAR_ID
+HAVING `RECORDS` > 0
+ORDER BY `MONTH`, CAR_ID DESC;
+
+-- WITH절은 한 번만 사용 가능하다. 대신 WITH절에 여러 개의
+-- CTE (Common Table Expressions) 를 생성할 수 있다.
+-- CTE는 임시 테이블과 비슷하게 동작한다.
+-- WHERE IN절은 서브쿼리 형태로 작성해야 한다.
