@@ -1,0 +1,5 @@
+-- https://school.programmers.co.kr/learn/courses/30/lessons/276035
+-- 소요 시간 : 9분 53초
+SELECT D.ID, D.EMAIL, D.FIRST_NAME, D.LAST_NAME FROM DEVELOPERS D
+WHERE D.SKILL_CODE & (SELECT SUM(S.CODE) FROM SKILLCODES S WHERE S.CATEGORY LIKE "Front End") > 0
+ORDER BY D.ID ASC;
