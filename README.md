@@ -10,3 +10,8 @@
 | fix   | 문제 풀이 코드 수정 |
 | update   | 문제 풀이 md 수정 |
 | comment | 문제 풀이 코드 주석 추가 |
+
+
+### 다시 풀어봐야 할 문제
+ * 2024-07-22
+    - [프로그래머스 42577. 전화번호 목록](https://school.programmers.co.kr/learn/courses/30/lessons/42577)
