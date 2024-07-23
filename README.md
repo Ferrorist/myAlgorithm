@@ -15,3 +15,6 @@
 ### 다시 풀어봐야 할 문제
  * 2024-07-22
     - ~~[프로그래머스 42577. 전화번호 목록](https://school.programmers.co.kr/learn/courses/30/lessons/42577)~~ (해결)
+
+ * 2024-07-31
+   - [백준 11003. 최솟값 찾기](https://www.acmicpc.net/problem/11003)
