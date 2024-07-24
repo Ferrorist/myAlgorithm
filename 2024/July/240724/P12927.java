@@ -1,3 +1,7 @@
+/*
+ * https://school.programmers.co.kr/learn/courses/30/lessons/12927
+ * 소요 시간 : 5분 5초
+ */
 import java.util.*;
 class Solution {
     public long solution(int n, int[] works) {
