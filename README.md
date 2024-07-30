@@ -18,3 +18,6 @@
 
  * 2024-07-31
    - [백준 11003. 최솟값 찾기](https://www.acmicpc.net/problem/11003)
+
+ * 2024-08-05
+   - [백준 9251. LCS](https://www.acmicpc.net/problem/9251)
