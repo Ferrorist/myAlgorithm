@@ -17,7 +17,10 @@
     - ~~[프로그래머스 42577. 전화번호 목록](https://school.programmers.co.kr/learn/courses/30/lessons/42577)~~ (해결)
 
  * 2024-07-31
-   - [백준 11003. 최솟값 찾기](https://www.acmicpc.net/problem/11003)
+   - ~~[백준 11003. 최솟값 찾기](https://www.acmicpc.net/problem/11003)~~ (답지 봄)
 
  * 2024-08-05
    - [백준 9251. LCS](https://www.acmicpc.net/problem/9251)
+
+ * 2024-08-11
+  - [백준 11003. 최솟값 찾기](https://www.acmicpc.net/problem/11003) (재도전)
