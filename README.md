@@ -20,7 +20,7 @@
    - ~~[백준 11003. 최솟값 찾기](https://www.acmicpc.net/problem/11003)~~ (답지 봄)
 
  * 2024-08-05
-   - [백준 9251. LCS](https://www.acmicpc.net/problem/9251)
+   - ~~[백준 9251. LCS](https://www.acmicpc.net/problem/9251)~~ (해결)
 
  * 2024-08-11
   - [백준 11003. 최솟값 찾기](https://www.acmicpc.net/problem/11003) (재도전)
