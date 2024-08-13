@@ -23,7 +23,7 @@
    - ~~[백준 9251. LCS](https://www.acmicpc.net/problem/9251)~~ (해결)
 
  * 2024-08-11
-   - [백준 11003. 최솟값 찾기](https://www.acmicpc.net/problem/11003) (재도전)
+   - ~~[백준 11003. 최솟값 찾기](https://www.acmicpc.net/problem/11003) (재도전)~~ (해결)
 
  * 2024-08-20
    - [백준 2133. 타일 채우기](https://www.acmicpc.net/problem/2133)
