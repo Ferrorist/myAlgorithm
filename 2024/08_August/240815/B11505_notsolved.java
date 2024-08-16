@@ -4,7 +4,7 @@
  */
 import java.io.*;
 import java.math.*;
-public class B11505 {
+public class B11505_notsolved {
     static final int INF = 1_000_000_007;
     static int[] arr, Tree;
     public static void main(String[] args) throws Exception {
