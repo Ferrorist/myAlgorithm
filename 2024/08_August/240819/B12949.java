@@ -1,3 +1,7 @@
+/*
+ * https://school.programmers.co.kr/learn/courses/30/lessons/12949
+ * 소요 시간 : 10분 55초
+ */
 class Solution {
     public int[][] solution(int[][] arr1, int[][] arr2) {
         int[][] answer = new int[arr1.length][arr2[0].length];
