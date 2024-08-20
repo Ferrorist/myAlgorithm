@@ -26,4 +26,4 @@
    - ~~[백준 11003. 최솟값 찾기](https://www.acmicpc.net/problem/11003) (재도전)~~ (해결)
 
  * 2024-08-20
-   - [백준 2133. 타일 채우기](https://www.acmicpc.net/problem/2133)
+   - ~~[백준 2133. 타일 채우기](https://www.acmicpc.net/problem/2133)~~ (해결)
