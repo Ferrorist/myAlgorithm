@@ -27,3 +27,6 @@
 
  * 2024-08-20
    - ~~[백준 2133. 타일 채우기](https://www.acmicpc.net/problem/2133)~~ (해결)
+
+ * 2024-08-29
+   - [프로그래머스 17680. 캐시](https://school.programmers.co.kr/learn/courses/30/lessons/17680)
