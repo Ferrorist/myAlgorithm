@@ -1,3 +1,7 @@
+/*
+ * https://school.programmers.co.kr/learn/courses/30/lessons/64065
+ * 소요 시간 : 15분 12초
+ */
 import java.util.*;
 class Solution {
     public int[] solution(String s) {              
