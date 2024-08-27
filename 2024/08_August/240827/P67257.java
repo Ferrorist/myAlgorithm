@@ -1,3 +1,7 @@
+/*
+ * https://school.programmers.co.kr/learn/courses/30/lessons/67257
+ * 소요 시간 : 57분 20초
+ */
 import java.util.*;
 class Solution {
     List<int[]> permutation_list = new ArrayList<>();
