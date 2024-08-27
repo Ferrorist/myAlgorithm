@@ -9,6 +9,7 @@ public class B5430 {
     static BufferedReader in;
     static int Testcase;
     static final char REVERSE = 'R', DELETE = 'D';
+    static boolean reverse;
     public static void main(String[] args) throws Exception {
         init();
         while(Testcase-- > 0)  solve();
@@ -33,18 +34,20 @@ public class B5430 {
             for(String num : arrInput)  deque.offerLast(Integer.parseInt(num));
         }
 
-        process(cmd, deque);
+        reverse = false;
+        if(process(cmd, deque)){
+            printResult(deque);
+        }
     }
 
-    private static void process(String cmd, Deque<Integer> deque) {
-        boolean reverse = false;
+    private static boolean process(String cmd, Deque<Integer> deque) {
         for(int i = 0; i < cmd.length(); i++){
             char current = cmd.charAt(i);
             if(current == REVERSE)  reverse = !(reverse);
             else { // D
                 if(deque.isEmpty()){
                     sb.append("error\n");
-                    return;
+                    return false;
                 }
 
                 if(reverse) deque.pollLast();
@@ -52,6 +55,10 @@ public class B5430 {
             }
         }
 
+        return true;
+    }
+
+    private static void printResult(Deque<Integer> deque) {
         sb.append("[");
         while(!deque.isEmpty()){
             if(reverse) sb.append(deque.pollLast());
