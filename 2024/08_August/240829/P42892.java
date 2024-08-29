@@ -30,21 +30,24 @@ class Solution {
     List<Integer> preOrderList, postOrderList;
     public int[][] solution(int[][] nodeinfo) {
         int[][] answer = new int[2][nodeinfo.length];
+        initList();
         Queue<Node> queue = setPriorityQueue(nodeinfo);
         
         Node root = queue.poll();
         while(!queue.isEmpty()) setTree(root, queue.poll());
         
-        preOrderList = new ArrayList<>();
-        preOrder(root);
+        setOrder(root, false, preOrderList);
+        setOrder(root, true, postOrderList);
         
-        postOrderList = new ArrayList<>();
-        postOrder(root);
-        
-        answer[0] = preOrderList.stream().mapToInt(Integer::intValue).toArray();
-        answer[1] = postOrderList.stream().mapToInt(Integer::intValue).toArray();
+        answer[0] = convertList(preOrderList);
+        answer[1] = convertList(postOrderList);
         
         return answer;
+    }
+
+    private void initList() {
+        preOrderList = new ArrayList<>();
+        postOrderList = new ArrayList<>();
     }
     
     private Queue<Node> setPriorityQueue(int[][] nodeinfo){
@@ -67,17 +70,22 @@ class Solution {
         }
     }
     
-    private void preOrder(Node node) {
+    private void setOrder(Node node, boolean isPost, List<Integer> list){
         if(node == null)    return;
-        preOrderList.add(node.getNum());
-        preOrder(node.getLeft());
-        preOrder(node.getRight());
+
+        if(isPost){ // postOrder
+            setOrder(node.getLeft(), isPost, list);
+            setOrder(node.getRight(), isPost, list);
+            list.add(node.getNum());
+        }
+        else { // preOrder
+            list.add(node.getNum());
+            setOrder(node.getLeft(), isPost, list);
+            setOrder(node.getRight(), isPost, list);
+        }
     }
-    
-    private void postOrder(Node node) {
-        if(node == null)    return;
-        postOrder(node.getLeft());
-        postOrder(node.getRight());
-        postOrderList.add(node.getNum());
+
+    private int[] convertList(List<Integer> list){
+        return list.stream().mapToInt(Integer::intValue).toArray();
     }
 }
