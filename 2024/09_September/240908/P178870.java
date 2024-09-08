@@ -1,17 +1,12 @@
 /*
  * https://school.programmers.co.kr/learn/courses/30/lessons/178870
  * 소요 시간 : 31분 4초
+ * 괜히 BinarySearch lowerbound 한다고 뻘짓한 문제;;
  */
 import java.util.*;
 class Solution {
     public int[] solution(int[] sequence, int k) {
-        int[] answer = new int[2];      
-        if(Arrays.binarySearch(sequence, k) >= 0) {
-            int idx = lowerBound(sequence, k);
-            answer[0] = answer[1] = idx;
-            return answer;
-        }
-        
+        int[] answer = new int[2];
         int[] DP = getSum(sequence);
         int start = 0, end = 1, length = Integer.MAX_VALUE;
         while(start < DP.length && end < DP.length){
@@ -26,20 +21,7 @@ class Solution {
         }
         
         return answer;
-    }
-    
-    private int lowerBound(int[] sequence, int k){
-        int start = 0, end = sequence.length;
-        while(start < end){
-            int mid = (start + end) >>> 1;
-            
-            if(sequence[mid] >= k)  end = mid;
-            else start = mid+1;
-        }
-        
-        return end;
-    }
-    
+    }   
     
     private int[] getSum(int[] sequence){
         int[] arr = new int[sequence.length + 1];
