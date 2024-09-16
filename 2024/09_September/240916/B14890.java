@@ -6,8 +6,7 @@ import java.io.*;
 import java.util.*;
 public class B14890 {
     static class Step{
-        int height;
-        int length;
+        int height, length;
 
         Step(int height, int length) {
             this.height = height;
@@ -20,7 +19,7 @@ public class B14890 {
     }
 
     static BufferedReader in;
-    static int map_size, length;
+    static int map_size, runway_length;
     static List<Step[]> roadList;
     public static void main(String[] args) throws Exception {
         initReader();
@@ -36,7 +35,7 @@ public class B14890 {
         StringTokenizer st = new StringTokenizer(in.readLine());
 
         map_size = Integer.parseInt(st.nextToken());   // (2 <= N <= 100, 4 <= 총 길 개수 <= 200)
-        length = Integer.parseInt(st.nextToken());   // (1 <= L <= N)
+        runway_length = Integer.parseInt(st.nextToken());   // (1 <= L <= N)
 
         roadList = new ArrayList<>(map_size * 2);
         int[][] map = new int[map_size][map_size];
@@ -58,8 +57,8 @@ public class B14890 {
     }
 
     static boolean checkHeight(int[] road) {
-        for(int i = 0; i < map_size-1; i++){
-            if(Math.abs(road[i] - road[i+1]) >= 2)  return false;
+        for(int i = 1; i < map_size; i++){
+            if(Math.abs(road[i-1] - road[i]) >= 2)  return false;
         }
         return true;
     }
@@ -85,11 +84,11 @@ public class B14890 {
         Search:
         for(Step[] road : roadList){
             for(int i = 1; i < road.length; i++){
-                if(road[i-1].height > road[i].height && road[i].canSetting(length)){
-                    road[i].length -= length;
+                if(road[i-1].height > road[i].height && road[i].canSetting(runway_length)){
+                    road[i].length -= runway_length;
                 }
-                else if(road[i-1].height < road[i].height && road[i-1].canSetting(length)){
-                    road[i-1].length -= length;
+                else if(road[i-1].height < road[i].height && road[i-1].canSetting(runway_length)){
+                    road[i-1].length -= runway_length;
                 }
                 else continue Search;
             }
