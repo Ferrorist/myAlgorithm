@@ -4,22 +4,20 @@
  */
 import java.util.*;
 class Solution {
-    Map<Integer, Integer> mapA, mapB;
-    HashSet<Integer> setA, setB;
+    private Map<Integer, Integer>[] map;
+    private HashSet<Integer>[] set;
+
     public int solution(int[] topping) {        
         initArguments();
-        Setting(mapA, setA, topping, 0, 2);
-        Setting(mapB, setB, topping, 2, topping.length);
+        Setting(map[0], set[0], topping, 0, 2);
+        Setting(map[1], set[1], topping, 2, topping.length);
         
         return solve(topping);
     }
     
     private void initArguments() {
-        mapA = new HashMap<Integer, Integer>();
-        mapB = new HashMap<Integer, Integer>();
-        
-        setA = new HashSet<Integer>();
-        setB = new HashSet<Integer>();
+        map = new HashMap[] {new HashMap<Integer, Integer>(), new HashMap<Integer, Integer>()};
+        set = new HashSet[] {new HashSet<>(), new HashSet<>()};
     }
     
     private void Setting(Map<Integer, Integer> map, HashSet<Integer> set, int[] topping, int start, int end){
@@ -34,14 +32,14 @@ class Solution {
         int idx = 2;
         
         while(true){
-            if(setA.size() == setB.size())  answer++;
+            if(set[0].size() == set[1].size())  answer++;
             if(idx < topping.length){
                 int current = topping[idx++];
-                mapA.put(current, mapA.getOrDefault(current, 0) + 1);
-                setA.add(current);
+                map[0].put(current, map[0].getOrDefault(current, 0) + 1);
+                set[0].add(current);
                 
-                mapB.put(current, mapB.get(current) - 1);
-                if(mapB.get(current) <= 0)   setB.remove(current);
+                map[1].put(current, map[1].get(current) - 1);
+                if(map[1].get(current) <= 0)   set[1].remove(current);
             }
             else break;
         }
