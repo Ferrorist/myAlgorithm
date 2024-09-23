@@ -35,17 +35,15 @@ public class B17140 {
     }
 
     private static int solve() {
-        int count = 0;
-        while(count <= MAX_COUNT){
-            if(matrix.length > row && matrix[0].length > col && matrix[row][col] == target)
-                return count;
-            
+        for(int count = 0; count <= MAX_COUNT; count++){
+            if(searchTarget(matrix))    return count;
             matrix = expendMatrix(matrix);
-            // printMatrix(matrix);
-            count++;
         }
-
         return -1;
+    }
+
+    private static boolean searchTarget(int[][] matrix){
+        return matrix.length > row && matrix[0].length > col && matrix[row][col] == target;
     }
 
     private static int[][] expendMatrix(int[][] map) {
@@ -117,19 +115,5 @@ public class B17140 {
                 else return o1.getValue() - o2.getValue();
             }
         });
-    }
-
-    private static void printMatrix(int[][] map) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("print: ").append("\n");
-
-        for(int y = 0; y < map.length; y++){
-            for(int x = 0; x < map[0].length; x++){
-                sb.append(map[y][x]).append(" ");
-            }
-            sb.append("\n");
-        }
-
-        System.out.println(sb.toString());
     }
 }
