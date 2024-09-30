@@ -1,3 +1,7 @@
+/*
+ * https://www.codetree.ai/training-field/frequent-problems/problems/cube-rounding/explanation?page=4&pageSize=20
+ * 풀이 시간 : 1시간 31분
+ */
 import java.io.*;
 import java.util.*;
 public class Main {
