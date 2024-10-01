@@ -1,7 +1,7 @@
 /*
- * https://www.codetree.ai/training-field/frequent-problems/problems/2048-game/submissions?page=3&pageSize=20
- * 소요 시간 : 1시간 20분
- */
+* https://www.codetree.ai/training-field/frequent-problems/problems/2048-game/submissions?page=3&pageSize=20
+* 소요 시간 : 1시간 20분
+*/
 import java.io.*;
 import java.util.*;
 public class Main {
@@ -26,19 +26,11 @@ public class Main {
         }
 
         @Override
-        public boolean equals(Object o){
-            if(this == o)   return true;
-            else if(!(o instanceof GameBoard)) return false;
-            else {
-                if(this.map.length != ((GameBoard)o).map.length || this.map[0].length != ((GameBoard)o).map[0].length)
-                    return false;
-                for(int y = 0; y < map.length; y++){
-                    for(int x = 0; x < map[0].length; x++){
-                        if(this.map[y][x] != ((GameBoard)o).map[y][x])    return false;
-                    }
-                }
-                return true;
-            }
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            GameBoard other = (GameBoard) o;
+            return Arrays.deepEquals(map, other.map);
         }
 
         @Override
