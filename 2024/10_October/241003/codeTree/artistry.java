@@ -4,7 +4,7 @@
  */
 import java.io.*;
 import java.util.*;
-public class Main {
+public class artistry {
     private static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     private static int[][] map;
     private static int[] parents;
