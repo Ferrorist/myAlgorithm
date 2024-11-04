@@ -18,7 +18,6 @@ class Solution {
     Map<String, String> userNicknames;
     
     public String[] solution(String[] records) {
-        String[] answer = {};
         roomLogs = new ArrayList<>();
         userNicknames = new HashMap<>();
         
