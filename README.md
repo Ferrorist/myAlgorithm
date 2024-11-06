@@ -31,3 +31,6 @@
 
  * 2024-08-29 → 2024-09-04
    - ~~[프로그래머스 17680. 캐시](https://school.programmers.co.kr/learn/courses/30/lessons/17680)~~ (해결)
+
+ * 2024-11-13
+   - [프로그래머스 12987. 숫자 게임](https://school.programmers.co.kr/learn/courses/30/lessons/12987)
