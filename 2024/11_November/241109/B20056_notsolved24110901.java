@@ -5,7 +5,7 @@
 import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
-public class B20056 {
+public class B20056_notsolved24110901 {
     static class FireBall {
         private int y, x;
         private int weight, direction, speed;
