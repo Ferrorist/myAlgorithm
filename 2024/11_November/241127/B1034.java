@@ -41,7 +41,7 @@ public class B1034 {
     }
 
     private static final BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-    private static int turnCount = 0, maxCount = Integer.MIN_VALUE;
+    private static int turnCount = 0, maxCount = 0;
     private static int[][] map;
     public static void main(String[] args) throws Exception {
         inputArguments();
@@ -70,26 +70,27 @@ public class B1034 {
         Queue<Situation> queue = new ArrayDeque<>();
         queue.offer(new Situation(map));
 
-        for (int turn = 0; turn <= turnCount && !queue.isEmpty(); turn++) {
+        for (int turn = 0; turn < turnCount; turn++) {
+            mapSet.clear();
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 Situation current = queue.poll();
-                if(!mapSet.contains(current)) {
-                    mapSet.add(current);
-                    setMaxCount(current);
-                    turnOnSwitch(current, mapSet, queue);
-                }
+                turnOnSwitch(current, queue);
             }
+            mapSet = new HashSet<>(queue);
+            queue = new ArrayDeque<>(mapSet);
+        }
+
+        while(!queue.isEmpty()) {
+            setMaxCount(queue.poll());
         }
     }
 
     static void setMaxCount(Situation s) {
         int count = 0;
-        int[] array = new int[s.map[0].length];
         for(int y = 0; y < s.map.length; y++) {
-            System.arraycopy(s.map[y], 0, array, 0, s.map[y].length);
-            Arrays.sort(array);
-            if (Arrays.binarySearch(array, 0) < 0) {
+            Arrays.sort(s.map[y]);
+            if (Arrays.binarySearch(s.map[y], 0) < 0) {
                 count++;
             }
         }
@@ -97,17 +98,11 @@ public class B1034 {
         maxCount = Math.max(maxCount, count);
     }
 
-    static void turnOnSwitch(Situation s, Set<Situation> set, Queue<Situation> queue) {
-        int[][] map = new int[s.map.length][s.map[0].length];
-        arraycopy(s.map, map);
-
+    static void turnOnSwitch(Situation s, Queue<Situation> queue) {
         for(int x = 0; x < map[0].length; x++) {
-            turnOn(map, x);
-            Situation situation = new Situation(map);
-            if(!set.contains(situation)) {
-                queue.offer(situation);
-            }
-            turnOn(map, x);
+            turnOn(s.map, x);
+            queue.offer(new Situation(s.map));
+            turnOn(s.map, x);
         }
     }
 
