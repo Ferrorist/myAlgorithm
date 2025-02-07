@@ -1,8 +1,10 @@
-// https://softeer.ai/app/assessment/index.html?xid=388871&xsrfToken=AAXSNK21ATSU1M2xo37Qk8SsdgSwOtFO&testType=practice
+/*
+ * https://softeer.ai/practice/11001
+ */
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class S11001 {
     private static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     private static Queue<GPTNumber> queue = new PriorityQueue<>();
     public static void main(String[] args) throws Exception {
