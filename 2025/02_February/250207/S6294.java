@@ -4,7 +4,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class S6294 {
 
     private static final BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
